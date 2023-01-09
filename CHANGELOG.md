@@ -2,235 +2,6 @@
 
 The changelog for `MessageKit`. Also see the [releases](https://github.com/MessageKit/MessageKit/releases) on GitHub.
 
-## Future release
-
-### Added
-
-### Fixed
-    
-### Changed
-
-### Removed
-
-## 4.1.0
-
-### Added
-
-- Swiftformat and Swiftlint SwiftPM plugins used for linting and formatting the codebase [#1729](https://github.com/MessageKit/MessageKit/pull/1729) by [@martinpucik](https://github.com/martinpucik)
-
-### Fixed
-
-- Fixed iOS 13 deprecation warnings [#1730](https://github.com/MessageKit/MessageKit/pull/1730) by [@kaspik](https://github.com/Kaspik)
-- SwiftPM plugins setup [#1732](https://github.com/MessageKit/MessageKit/pull/1732) by [@martinpucik](https://github.com/martinpucik)
-    
-### Changed
-
-- Updated InputBarAccessoryView to v6.1.1 by [@kaspik](https://github.com/Kaspik)
-
-## 4.0.0
-
-Version 4.0.0 comes with couple of breaking changes, please refer to [MIGRATION_GUIDE.md](https://github.com/MessageKit/MessageKit/blob/main/Documentation/MIGRATION_GUIDE.md) for easy transition from V3 to V4.
-
-### Added
-
-- New method in `MessagesLayoutDelegate` for setting message avatar size [ddfc814](https://github.com/MessageKit/MessageKit/commit/ddfc814d325ee5aa238484c90128d32e5a72a49b) by [@martinpucik](https://github.com/martinpucik)
-- `MessageInputBarKind` enum for customizing `messageInputBar` inside `inputContainerView` [#1707](https://github.com/MessageKit/MessageKit/pull/1707) by [@martinpucik](https://github.com/martinpucik)
-
-### Changed
-   
-- **Breaking change**: Dropped CocoaPods support
-- **Breaking change**: Dropped support for iOS 12 [2bd234b](https://github.com/MessageKit/MessageKit/commit/2bd234b1e878f392089f166d6868ce644d6c9e95) by [@martinpucik](https://github.com/martinpucik)
-- **Breaking change**: Moved messageInputBar from inputAccessoryView to a subview in MessagesViewController [#1704](https://github.com/MessageKit/MessageKit/pull/1704) by [@martinpucik](https://github.com/martinpucik)
-- **Breaking change**: Renamed `func currentSender() -> SenderType` to `var currentSender: SenderType` [#1714](https://github.com/MessageKit/MessageKit/pull/1714) by [@martinpucik](https://github.com/martinpucik)
-- **Deprecation**: Deprecated `maintainPositionOnKeyboardFrameChangedMoved` in favor of `maintainPositionOnInputBarHeightChanged` which better describes the intended use of this property [#1704](https://github.com/MessageKit/MessageKit/pull/1705) by [@martinpucik](https://github.com/martinpucik)
-- **Breaking change**: Added an argument to `messageContainerMaxWidth` [cd4f75b](https://github.com/MessageKit/MessageKit/commit/cd4f75b561129fc25e6c4576000e5a92ccd81cad) by [@martinpucik](https://github.com/martinpucik)
-    ```swift
-    MessageSizeCalculator.messageContainerMaxWidth(for message: MessageType) -> CGFloat
-    ```
-    now has IndexPath argument
-    ```swift
-    MessageSizeCalculator.messageContainerMaxWidth(for message: MessageType, at indexPath: IndexPath) -> CGFloat
-    ```
-- **Breaking change**: Added an argument to `messageContainerSize` [cd4f75b](https://github.com/MessageKit/MessageKit/commit/cd4f75b561129fc25e6c4576000e5a92ccd81cad) by [@martinpucik](https://github.com/martinpucik)
-    ```swift
-    MessageSizeCalculator.messageContainerSize(for message: MessageType) -> CGSize
-    ```
-    now has IndexPath argument 
-    ```swift
-    MessageSizeCalculator.messageContainerSize(for message: MessageType, at indexPath: IndexPath) -> CGSize
-    ```
-- Updated InputBarAccessoryView to v6.1.0 [#1716](https://github.com/MessageKit/MessageKit/pull/1716) by [@martinpucik](https://github.com/martinpucik)
-- Observe inputBar frame change to update collectionView bottom inset instead of keyboard show/hide notifications [#1726](https://github.com/MessageKit/MessageKit/pull/1726) by [@martinpucik](https://github.com/martinpucik)
-
-### Fixed
-
-- Fixed iOS 13 deprecation warnings [#1715](https://github.com/MessageKit/MessageKit/pull/1715) by [@kaspik](https://github.com/Kaspik)
-- Updating bottom chat collectionView inset after InputBar container view frame change [#1725](https://github.com/MessageKit/MessageKit/pull/1725) by [@martinpucik](https://github.com/martinpucik)
-
-### Removed
-
-- NSConstraintLayoutSet.swift [#1700](https://github.com/MessageKit/MessageKit/pull/1700) by [@martinpucik](https://github.com/martinpucik) 
-- Deprecated `Sender` struct. Clients should use `SenderType` protocol [#1713](https://github.com/MessageKit/MessageKit/pull/1713) by [@martinpucik](https://github.com/martinpucik)
-- Unavailable `MessageInputBar` and `MessageInputBarDelegate`. Clients should use `InputBarAccessoryView` and `InputBarAccessoryViewDelegate` [#1713](https://github.com/MessageKit/MessageKit/pull/1713) by [@martinpucik](https://github.com/martinpucik)
-- `func scrollToBottom(animated:)` on `MessagesCollectionView`. Clients should use `func scrollToLastItem(:)` [#1713](https://github.com/MessageKit/MessageKit/pull/1713) by [@martinpucik](https://github.com/martinpucik)
-
-## 3.8.0
-
-### Added
-
-- New methods in `MessagesLayoutDelegate` for adjusting alignment of message top and bottom labels [#1671](https://github.com/MessageKit/MessageKit/pull/1671) by [@martinpucik](https://github.com/martinpucik)
-
-### Removed
-
-- Not used workspace files in example project [#1671](https://github.com/MessageKit/MessageKit/pull/1671) by [@martinpucik](https://github.com/martinpucik) 
-
-## 3.7.0
-
-### Fixed
-
-- Updated InputBarAccessoryView to 5.4.0 with XCode 13 support
-- Fixed Example project loading MessageKit through SPM
-- Make sure MessageKit works on XCode 13 correctly
-
-## 3.6.1
-
-### Added
-
-- Added enough data source and delegate methods to display customized `UICollectionViewCell` for MessageTypes other than `.custom` in [#1577](https://github.com/MessageKit/MessageKit/pull/1577) by [@jvigneshcs](https://github.com/jvigneshcs)
-
-## 3.6.0
-
-### Fixed
-
-- Fixes an issue with Scroll problem on new messages with keyboard open [#1529](https://github.com/MessageKit/MessageKit/pull/1529) by [@politan8](https://github.com/politan8)
-
-- Fixes time stamp vertical alignment so labels align with messages when showMessageTimestampOnSwipeLeft is true.
-  by [@kurtsequoia](https://github.com/MessageKit/MessageKit/pull/1556)
-  
-- **Breaking Change** Changed `MessagesLayoutDelegate`'s method for typing indicator size. Typing indicator's size is now correctly calculated based on delegate method `func typingIndicatorViewSize(for layout: MessagesCollectionViewFlowLayout) -> CGSize` [#1563](https://github.com/MessageKit/MessageKit/pull/1563) by [@kaspik](https://github.com/kaspik)
-
-### Added
-
-### Changed
-
-- Changed `resource_bundle` back to `resources` in MessageKit.podspec [#1565](https://github.com/MessageKit/MessageKit/pull/1565) by [@kaspik](https://github.com/kaspik)
-
-### Removed
-
-## 3.5.1
-
-### Fixed
-- `MessagesViewController` now smoothly scrolls messages off screen. [1531](https://github.com/MessageKit/MessageKit/issues/1531) & [1547](https://github.com/MessageKit/MessageKit/pull/1547) by [@mredig](https://github.com/mredig)
-
-### Changed
-- Bump `InputBarAccessoryView`
-
-## 3.5.0
-
-### Fixed
-
-- maintainPositionOnKeyboardFrameChanged for small contentSize would scroll content out of bounds [#1506](https://github.com/MessageKit/MessageKit/pull/1506) by [@martinpucik](https://github.com/martinpucik)
-
-### Added
-
-### Changed
-
-- Changed `resources` to `resource_bundle` in MessageKit.podspec [#1460](https://github.com/MessageKit/MessageKit/pull/1460) by [@martinpucik](https://github.com/martinpucik)
-- Changed dependency manager for Example project to SPM [#1504](https://github.com/MessageKit/MessageKit/pull/1504) by [@martinpucik](https://github.com/martinpucik)
-- Deprecated `messagesCollectionView.scrollToBottom` and `scrollsToBottomOnKeyboardBeginsEditing` in favor of `messagesCollectionView.scrollToLastItem` and `scrollsToLastItemOnKeyboardBeginsEditing`. This will be removed in a future release [#1505](https://github.com/MessageKit/MessageKit/pull/1505) by [@martinpucik](https://github.com/martinpucik)
-
-### Removed
-
-## 3.4.2
-
-- Updated `InputBarAccessoryView` to 5.2.1 with fixed warning on XCode 12 when used via SPM
-
-## 3.4.1
-
-### Fixed
-
-- Fixes an issue with casting MessageType to a custom type when using LinkPreview cells [#1469](https://github.com/MessageKit/MessageKit/pull/1469) by [@kinoroy](https://github.com/kinoroy)
-
-- Fixes an issue where the MessagesViewController keyboard observers were not cleaned up when MessagesViewController was no longer visible on screen [#1476](https://github.com/MessageKit/MessageKit/pull/1476) by [@kinoroy](https://github.com/kinoroy)
-
-## 3.4.0
-
-### Changed
-
-- **Breaking Change** Dropped support for iOS 11, added support for Swift 5.3 SPM and XCode 12 [#1464](https://github.com/MessageKit/MessageKit/pull/1464) by [@kaspik](https://github.com/kaspik)
-
-## 3.3.0
-
-### Fixed
-
-- Fixes missing insets for link preview messages [#1447](https://github.com/MessageKit/MessageKit/pull/1447) by [@bguidolim](https://github.com/bguidolim)
-
-### Added
-
-- Show message time by swiping left over the chat controller. [#1444](https://github.com/MessageKit/MessageKit/pull/1444) by [@amirpirzad](https://github.com/amirpirzad)
-
-## 3.2.0
-
-### Fixed
-
-- Fixes an incorrect animation of message cells while dragging to dismiss the keyboard [#1433](https://github.com/MessageKit/MessageKit/pull/1433) by [@lhr000lhrmega](https://github.com/lhr000lhrmega)
-- Fixes an issue where the video message playback icon was too dark when in dark mode [#1386](https://github.com/MessageKit/MessageKit/pull/1386) by [@kinoroy](https://github.com/kinoroy)
-- Fixes an issue where the video message playback button triangle was not centered within the circle [#1386](https://github.com/MessageKit/MessageKit/pull/1386) by [@kinoroy](https://github.com/kinoroy)
-
-### Added
-
-- Added option to use Photo messages with remote image URL in Example project [#1294](https://github.com/MessageKit/MessageKit/pull/1294) by [@martinpucik](https://github.com/martinpucik)
-- **Breaking Change** Added new `linkPreview` message type, which display a subclass of `TextMessageCell` with support to present title, teaser and a thumbnail image for a link [#1310](https://github.com/MessageKit/MessageKit/pull/1310) by [@bguidolim](https://github.com/bguidolim)
-- Added a SwiftUI view using MessageKit in the Example Project by [#1410](https://github.com/MessageKit/MessageKit/pull/1410) [@kinoroy](https://github.com/kinoroy)
-
-### Changed
-
-- **Breaking Change** Dropped support for iOS 9 and iOS 10 [#1261](https://github.com/MessageKit/MessageKit/pull/1261) by [@kaspik](https://github.com/kaspik)
-- Converted internal, static colors into color assets to better support dark and high contrast modes [#1386](https://github.com/MessageKit/MessageKit/pull/1386) by [@kinoroy](https://github.com/kinoroy)
-- Change the video message playback button to use a UIVisualEffectsView to better match the look and feel of iMessage. [#1386](https://github.com/MessageKit/MessageKit/pull/1386) by [@kinoroy](https://github.com/kinoroy)
-
-## 3.1.0
-
-### Fixed
-
- - Set the proper notification to invalidate layout. MessageKit now relies on `UIApplication` orientation notification instead of `UIDevice`, which invalidates the layout only when it is needed. [#1126](https://github.com/MessageKit/MessageKit/pull/1126) by [@bguidolim](https://github.com/bguidolim)
- 
- - Fixed `requiredInitialScrollViewBottomInset` when `inputAccessoryView` is `nil` [#1218](https://github.com/MessageKit/MessageKit/pull/1218) by [@aabosh](https://github.com/aabosh) 
-
- - Fixed `MessagesCollectionView.scrollToBottom(animated:)` method to properly handle calls made early in the view lifecycle. [#1110](https://github.com/MessageKit/MessageKit/pull/1110) by [@marcetcheverry](https://github.com/marcetcheverry)
- 
- - Fixed `TypingIndicator` `dotColor` for light mode. [#1266](https://github.com/MessageKit/MessageKit/pull/1266) by [@lewis-smith](https://github.com/lewis-smith)
-
-### Added
-
-- Add missing textAlignment and textInsets assignments to layoutCellTopLabel method in MessageContentCell. [#1117](https://github.com/MessageKit/MessageKit/pull/1117) by [@mdescalzo](https://github.com/mdescalzo)
-
-- Add support for styling NSLinkAttribute with existing urlAttributes in MessageLabel. [#1091](https://github.com/MessageKit/MessageKit/pull/1091) by [@marcetcheverry](https://github.com/marcetcheverry)
-
-- Add loading indicator to AudioMessageCell. [#1084](https://github.com/MessageKit/MessageKit/pull/1084) by [@marcetcheverry](https://github.com/marcetcheverry)
-
-- Add support for Dark Mode [#1189](https://github.com/MessageKit/MessageKit/pull/1189) by [@Vlada31R](https://github.com/Vlada31R)
-
-- Add support for `scrollToLastItem` and `scrollsToLastItemOnKeyboardBeginsEditing` [#1247](https://github.com/MessageKit/MessageKit/pull/1247) by [@hyouuu](https://github.com/hyouuu)
-
-- Added `MessageCellDelegate.didTapImage(in cell: MessageCollectionViewCell)` [#1166](https://github.com/MessageKit/MessageKit/pull/1166) by [@domeniconicoli](https://github.com/domeniconicoli), [#1278](https://github.com/MessageKit/MessageKit/pull/1278) by [@bguidolim](https://github.com/bguidolim), [1285](https://github.com/MessageKit/MessageKit/pull/1285) by [@austinwright](https://github.com/austinwright)
-
-- Added missing cellTopLabelAlignment to MessageSizeCalculator. [#1113](https://github.com/MessageKit/MessageKit/pull/1113) by [@marcetcheverry](https://github.com/marcetcheverry)
-
-### Changed
-
-- **Breaking Change** Updated to Swift 5.0 [#1039](https://github.com/MessageKit/MessageKit/pull/1039) by [@nathantannar4](https://github.com/nathantannar4)
-
-- Lazily initialize the MessageInputBar on MessagesViewController. [#1092](https://github.com/MessageKit/MessageKit/pull/1092) by [@marcetcheverry](https://github.com/marcetcheverry)
-
-### Deprecated
-
-- Deprecated `SenderType.id` in favor of `SenderType.senderId`. This change was previously meant for 3.0.0. [#1201](https://github.com/MessageKit/MessageKit/pull/1201) by [@kinoroy](https://github.com/kinoroy)
-
-### Removed
-
-- **Breaking Change** `MessageInputBar`, and `MessageInputBarDelegate` have been obsoleted. Use `InputBarAccessoryView` and `InputBarAccessoryViewDelegate` respectively. This change was previously meant for 3.0.0. [#1201](https://github.com/MessageKit/MessageKit/pull/1201) by [@kinoroy](https://github.com/kinoroy)
-
 ## 3.0.0
 
 ### Dependency Changes
@@ -334,7 +105,7 @@ Version 4.0.0 comes with couple of breaking changes, please refer to [MIGRATION_
 - Added customizable `accessoryView`, with a new `MessagesDisplayDelegate` function `configureAccessoryView`, and corresponding size & padding properties in `MessageSizeCalculator`. The `accessoryView` is aligned to the center of the `messageContainerView`.
 [#710](https://github.com/MessageKit/MessageKit/pull/710) by [@hyouuu](https://github.com/hyouuu)
 
-- Added a tap gesture recognition to the `accessoryView` which calls the  `MessageCellDelegate` function `didTapAccessoryView(in:)`. 
+- Added a tap gesture recognition to the `accessoryView` which calls the  `MessageCellDelagate` function `didTapAccessoryView(in:)`. 
 [#834](https://github.com/MessageKit/MessageKit/pull/834) by [@nathantannar4](https://github.com/nathantannar4)
 
 - Added `additionalBottomInset` property that allows to adjust the bottom content inset automatically set on the messages collection view by the view controller. 
@@ -342,7 +113,7 @@ Version 4.0.0 comes with couple of breaking changes, please refer to [MIGRATION_
 
 ### Fixed
 
-- **Breaking Change** Fixed typo of `scrollsToBottomOnKeyboardBeginsEditing` to `scrollsToBottomOnKeyboardBeginsEditing`.
+- **Breaking Change** Fixed typo of `scrollsToBottomOnKeybordBeginsEditing` to `scrollsToBottomOnKeyboardBeginsEditing`.
 [#856](https://github.com/MessageKit/MessageKit/pull/856) by [@p-petrenko](https://github.com/p-petrenko)
 
 -  Fixed a bug that prevented `MessageLabel` from laying out properly when contained by superviews using autolayout.
@@ -494,7 +265,7 @@ You must now set this font explicitly through the `emojiMessageSizeCalculator` o
 - **Breaking Change** Removed the `showsDateHeaderAfterTimeInterval` property of `MessagesCollectionView`.
 [#615](https://github.com/MessageKit/MessageKit/pull/615) by [@SD10](https://github.com/sd10).
 
-- **Breaking Change** Removed the `reuseIdentifier` method from `MessageCollectionViewCell`, `TextMessageCell`,
+- **Breaking Change** Removed the `reuseIdentifer` method from `MessageCollectionViewCell`, `TextMessageCell`,
 `LocationMessageCell`, `MediaMessageCell`, and `MessageContentCell`.
 [#615](https://github.com/MessageKit/MessageKit/pull/615) by [@SD10](https://github.com/sd10).
 
@@ -700,8 +471,8 @@ typed as `MessageLabel` and are now regular `UILabel`s.
 
 ### Fixed
 
-- **Breaking Change** Fixed all instances of misspelled `initial` property. `Avatar.initial` has changed to `Avatar.initial` 
-and the initializer has changed from `public init(image: UIImage? = nil, initials: String = "?")` to `public init(image: UIImage? = nil, initials: String = "?")`. 
+- **Breaking Change** Fixed all instances of misspelled `inital` property. `Avatar.inital` has changed to `Avatar.initial` 
+and the initializer has changed from `public init(image: UIImage? = nil, initals: String = "?")` to `public init(image: UIImage? = nil, initials: String = "?")`. 
 [#298](https://github.com/MessageKit/MessageKit/issues/298) by [@sidmclaughlin](https://github.com/sidmclaughlin).
 
 - Fixed `MessageInputBar`'s `translucent` functionality.
@@ -734,7 +505,7 @@ moved their methods into the `MessagesLayoutDelegate` protocol.
 - Fixed `contentInset.top` adjustment of the `MessagesCollectionView` on iOS versions less than 11 where it was found that messages appeared under the navigation var
 [#334](https://github.com/MessageKit/MessageKit/pull/334) by [@nathantannar4](https://github.com/nathantannar4).
 
-- Fixed `cellBottomLabel` origin X for the `.messageLeading` alignment and
+- Fixed `cellbottomLabel` origin X for the `.messageLeading` alignment and
 origin Y so that the `cellBottomLabel` is always under the `MessageContainerView`.
 [#326](https://github.com/MessageKit/MessageKit/pull/326) by [@SD10](https://github.com/sd10). 
 
@@ -754,7 +525,7 @@ origin Y so that the `cellBottomLabel` is always under the `MessageContainerView
 -  Fixed a bug that caused a race condition to be met when invalidating the `intrinsicContentSize` of the `MessageInputBar` which froze the app during a "Select" or "Select All" long press
 [#313](https://github.com/MessageKit/MessageKit/pull/313) by [@zhongwuzw](https://github.com/nathantannar4).
 
--  Fixed a bug that the `placeholderLabel` `subview` of `InputTextView` leads to ambiguous content size because of incorrect `Auto Layout`.
+-  Fixed a bug that the `placeholderLabel` `subview` of `InputTextView` leads to ambiguous content size because of uncorrect `Auto Layout`.
 [#310](https://github.com/MessageKit/MessageKit/pull/310) by [@zhongwuzw](https://github.com/zhongwuzw).
 
 -  Fixed a bug that the `leftStackView`、`rightStackView` `subview` of `MessageInputBar` leads to ambiguous `Auto Layout` issue because of typo.
@@ -790,7 +561,7 @@ origin Y so that the `cellBottomLabel` is always under the `MessageContainerView
 
 ### Fixed
 
--  Fixed a bug that prevented the `textAlignment` property of `InputTextView`'s `placeholderLabel` from having noticeable differences when changed to `.center` or `.right`.
+-  Fixed a bug that prevented the `textAllignment` property of `InputTextView`'s `placeholderLabel` from having noticable differences when changed to `.center` or `.right`.
 [#262](https://github.com/MessageKit/MessageKit/pull/262) by [@nathantannar4](https://github.com/nathantannar4).
 
 -  Initial `contentInset.bottom` reference changed from `messageInputBar` to `inputAccessoryView` to allow custom `inputAccessoryView`'s that don't break the initial layout.
@@ -821,7 +592,7 @@ when `extendedLayoutIncludesOpaqueBars` is `true`.
 - **Breaking Change** `.emoji(String)` case to `MessageData` enum. 
 [#222](https://github.com/MessageKit/MessageKit/pull/222) by [@SirArkimdes](https://github.com/SirArkimedes).
 
-- **Breaking Change** `TextMessageDisplayDelegate` to handle `enabledDetectors(for:at:in)` and moves `textColor(for:at:in)` to this namespace.
+- **Breaking Change** `TextMessageDisplayDelegate` to handle `enabledDetecors(for:at:in)` and moves `textColor(for:at:in)` to this namespace.
 [#230](https://github.com/MessageKit/MessageKit/pull/230) by [@SD10](https://github.com/sd10)
 
 - `LocationMessageDisplayDelegate` to customize a location messages appearance and add a `MKAnnotationView` to location message snapshots. 
@@ -839,7 +610,7 @@ when `extendedLayoutIncludesOpaqueBars` is `true`.
 - `scrollsToBottomOnKeyboardDidBeginEditing` property to automatically scroll to the bottom of `MessagesCollectionView` when the keyboard begins editing.
 [#217](https://github.com/MessageKit/MessageKit/pull/217) by [@SD10](https://github.com/SD10).
 
-- `additionalTopContentInset` property to `MessagesCollectionViewController` to allow users to account for extra subviews.
+- `additionalTopContentInset` property to `MessagesColectionViewController` to allow users to account for extra subviews.
 [#218](https://github.com/MessageKit/MessageKit/pull/218) by [@SD10](https://github.com/SD10).
 
 - `messagePadding(for:at:in)` method to `MessagesLayoutDelegate` to dynamically set padding around `MessageContainerView`.
