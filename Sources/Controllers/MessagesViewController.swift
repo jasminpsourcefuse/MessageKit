@@ -23,7 +23,7 @@
  */
 
 import UIKit
-import InputBarAccessoryView
+//import InputBarAccessoryView
 
 /// A subclass of `UIViewController` with a `MessagesCollectionView` object
 /// that is used to display conversation interfaces.

@@ -24,7 +24,7 @@ SOFTWARE.
 
 import UIKit
 import MessageKit
-import InputBarAccessoryView
+//import InputBarAccessoryView
 
 /// A base class for the example controllers
 class ChatViewController: MessagesViewController, MessagesDataSource {

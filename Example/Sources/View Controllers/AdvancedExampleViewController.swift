@@ -25,7 +25,7 @@
 import UIKit
 import MapKit
 import MessageKit
-import InputBarAccessoryView
+//import InputBarAccessoryView
 
 final class AdvancedExampleViewController: ChatViewController {
         

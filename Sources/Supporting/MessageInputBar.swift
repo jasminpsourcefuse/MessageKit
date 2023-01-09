@@ -23,7 +23,7 @@
  */
 
 import UIKit
-import InputBarAccessoryView
+//import InputBarAccessoryView
 
 @available(*, obsoleted: 3.0.0, renamed: "InputBarAccessoryView")
 public typealias MessageInputBar = InputBarAccessoryView

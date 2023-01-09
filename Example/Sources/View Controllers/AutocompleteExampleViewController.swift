@@ -8,7 +8,7 @@
 
 import UIKit
 import MessageKit
-import InputBarAccessoryView
+//import InputBarAccessoryView
 
 final class AutocompleteExampleViewController: ChatViewController {
 
