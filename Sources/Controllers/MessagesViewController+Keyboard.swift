@@ -100,7 +100,7 @@ internal extension MessagesViewController {
             // No need to add to the top contentInset
         } else {
             let navigationBarInset = navigationController?.navigationBar.frame.height ?? 0
-            let statusBarInset: CGFloat = UIApplication.shared.isStatusBarHidden ? 0 : 20
+            let statusBarInset: CGFloat = 20
             let topInset = navigationBarInset + statusBarInset
             messagesCollectionView.contentInset.top = topInset
             messagesCollectionView.scrollIndicatorInsets.top = topInset

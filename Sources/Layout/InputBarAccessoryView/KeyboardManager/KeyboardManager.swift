@@ -185,6 +185,7 @@ open class KeyboardManager: NSObject, UIGestureRecognizerDelegate {
     ///
     /// - Parameter scrollView: UIScrollView
     /// - Returns: Self
+    @available(iOSApplicationExtension, unavailable)
     @discardableResult
     open func bind(to scrollView: UIScrollView) -> Self {
         self.scrollView = scrollView
@@ -268,6 +269,7 @@ open class KeyboardManager: NSObject, UIGestureRecognizerDelegate {
     /// on the `UIPanGestureRecognizer` then calls the `.willChangeFrame` `EventCallback` action
     ///
     /// - Parameter recognizer: UIPanGestureRecognizer
+    @available(iOSApplicationExtension, unavailable)
     @objc
     open func handlePanGestureRecognizer(recognizer: UIPanGestureRecognizer) {
         guard
